@@ -31,23 +31,10 @@
 
         
     </main>
-    <form id="loginForm" class="auth-form">
-  <div class="form-field">
-    <label>Email
-      <input type="email" name="email" required>
-    </label>
-  </div>
-
-  <div class="form-field">
-    <label>Password
-      <input type="password" name="password" required>
-    </label>
-  </div>
-
-  <div class="form-actions">
-    <button type="button" class="btn btn-outline">Cancel</button>
-    <button type="submit" class="btn btn-primary">Log in</button>
-  </div>
+    <form id="loginForm" style="display:none;">
+    <label>Email:<input type="email" id="email" name="email" required></label><br>
+    <label>Password:<input type="password" id="password" name="password" required></label><br>
+    <button type="submit">Submit</button>
 </form>
 
 <form id="signUpForm" style="display:none;">
