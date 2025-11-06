@@ -1,5 +1,5 @@
 body{
-    font-family:'Courier New', Courier, monospace;
+    font-family: "georgia", serif;
     background-color: cornsilk;
 }
 h1{
@@ -9,12 +9,31 @@ h1{
     padding: 3rem;
     margin: 0;
 }
+.hidden{
+    display: none !important;
+}
+form{
+    max-width: 400px;
+    justify-content: center;
+    align-items: center;
+    background-color: darkcyan;
+    color: bisque;
+    padding: 1rem;
+    margin: 0.3rem;
+    display: block;
+}
 nav{
     display: flex;
+    align-items:center;
     justify-content: center;
+    gap: 1rem;
     background-color: darkcyan;
     padding: 1rem;
     margin: 0;
+}
+nav *{
+    margin: 0;
+    vertical-align: middle;
 }
 nav ul{
     list-style: none;
@@ -32,25 +51,14 @@ nav a{
 nav a:hover{
     text-decoration: underline;
 }
-nav button{
+input{
     background-color: bisque;
-    color: darkcyan;
-    border: none;
-    padding: 0.1rem 0.1rem;
-    cursor: pointer;
-    font-size: 1rem;
-}
-nav button:hover{
-    background-color: bisque;
-    color: darkcyan;
-}
-nav input{
-    background-color: bisque;
-    color: darkcyan;
-    margin-left: 1rem;
+    color: rgb(2, 73, 73);
+    margin: 1rem;
     padding: 0.2rem;
-    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
     border: none;
+    border-radius: 6px;
 }
 main{
     color: darkcyan;
@@ -63,58 +71,33 @@ footer{
     color: bisque;
     margin-top: 2rem;
 }
-
-/* keep the search input and button inline */
-.nav-search{
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-left: 1rem;
+p{
+    padding: 0;
+    margin: 0 1rem 1rem 1rem;
 }
-.nav-search input{
+
+textarea{
+    background-color: bisque;
+    color: darkcyan;
     padding: 0.25rem 0.5rem;
     border-radius: 6px;
 }
-.nav-search button{
-    padding: 0.35rem 0.6rem;
-    border-radius: 6px;
-}
 
-/* Auth buttons and shared button styles */
-.auth-actions{
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin: 2rem 0;
-}
-.btn{
-    font-family: 'Courier New', Courier, monospace;
-    padding: 0.6rem 1rem;
-    border-radius: 8px;
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
-    font-size: 1rem;
-}
-.btn:focus{
+button:focus{
     outline: none;
     box-shadow: 0 0 0 3px rgba(0,128,128,0.15);
 }
-.btn-primary{
+button{
     background-color: bisque;
     color: darkcyan;
     border-color: darkcyan;
+    border-radius: 6px;
 }
-.btn-primary:hover{
+button:hover{
     transform: translateY(-2px);
     box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
-.btn-outline{
-    background-color: bisque;
-    color: darkcyan;
-    border-color: darkcyan;
-}
-.btn-outline:hover{
+button:hover{
     transform: translateY(-2px);
 }
 

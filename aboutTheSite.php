@@ -9,26 +9,12 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>Our Recipe Web Application</h1>
-        <nav>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="aboutTheSite.html">About the Site</a></li>
-            <li><a href="recipeIndex.html">Recipe Index</a></li>
-        </ul>
-    <div class="nav-search">
-            <input type="text" placeholder="Search recipes...">
-            <button onclick="searchRecipes()">Search</button>
-        </div>
-    </nav>
-    </header>
+    <?php include 'header.php'; ?>
+    <?php include 'authForms.php'; ?>
 
     <main>
         <p>This Recipe Web Application is designed to provide users with a collection of easy and delicious recipes from around the world. Whether you're a beginner cook or an experienced chef, our site offers something for everyone.</p>
     </main>
-    <footer>
-        <p>&copy; 2025 Recipe Web Application</p>
-    </footer>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

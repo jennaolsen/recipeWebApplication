@@ -7,25 +7,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Our Recipe Web Application</h1>
-        <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#summary">About the Site</a></li>
-            <li><a href="#recipes">Recipe Index</a></li>
-        </ul>
-    <div class="nav-search">
-            <input type="text" placeholder="Search recipes...">
-            <button onclick="searchRecipes()">Search</button>
-        </div>
-    </nav>
-    </header>
+    <?php include 'header.php'; ?>
+    <?php include 'authForms.php'; ?>
     <main>
-        <div class="auth-actions">
-            <button id="signUpButton" class="btn btn-outline">Sign Up</button>
-            <button id="loginButton" class="btn btn-outline">Log In</button>
-        </div>
+        
         <!-- Recipe name -->
         <h2>Indonesian Fried Rice</h2>
         <!-- Recipe blurb -->
@@ -71,9 +56,7 @@
 
         
     </main>
-    <footer>
-        <p>&copy; 2025 Recipe Web Application</p>
-    </footer>
+    <?php include 'footer.php'; ?>
 </body>
 <script src="script.js"></script>
 

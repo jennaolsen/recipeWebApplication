@@ -1,22 +1,35 @@
-document.getElementById("loginButton").addEventListener('click', function() {
-    const form = document.getElementById('loginForm');
-    if(form.style.display === 'none' || !form.style.display){
-        form.style.display = 'block';
-        const firstInput = form.querySelector('input');
-        if(firstInput) firstInput.focus();
-    }
-    else{
-        form.style.display = 'none';
-    }
+document.addEventListener("DOMContentLoaded", function() {
+  const loginForm = document.getElementById("loginForm");
+  const signUpForm = document.getElementById("signUpForm");
+  const loginBtn = document.getElementById("loginBtn");
+  const signUpBtn = document.getElementById("signUpBtn");
+
+  loginButton.addEventListener("click", () => {
+    loginForm.classList.toggle("hidden");
+    signUpForm.classList.add("hidden");
+  });
+
+  signUpButton.addEventListener("click", () => {
+    signUpForm.classList.toggle("hidden");
+    loginForm.classList.add("hidden");
+  });
 });
-document.getElementById("signUpButton").addEventListener('click', function() {
-    const form = document.getElementById('signUpForm');
-    if(form.style.display === 'none' || !form.style.display){
-        form.style.display = 'block';
-        const firstInput = form.querySelector('input');
-        if(firstInput) firstInput.focus();
+document.getElementById("signUpForm").addEventListener('submit', function(event) {
+    const email = document.getElementById('signUpEmail').value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    if(emailRegex.test(email) === false){
+        alert("Please enter a valid email address.");
+        event.preventDefault();
+        return;
     }
-    else{
-        form.style.display = 'none';
+    if(password != confirmPassword){
+        alert("Passwords do not match.");
+        event.preventDefault();
+        return;
     }
+
+
 });
