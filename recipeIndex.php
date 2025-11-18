@@ -1,3 +1,11 @@
+<?php
+require __DIR__ . "/config.php";
+require 'apiFunctions.php';
+$recipes = fetchRecipes($apiKey,'', 20);
+
+loadDatabaseRecipes($recipes, $conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +18,15 @@
     <?php include 'header.php'; ?>
     <main>
         <h2>Recipe Index</h2>
-        <nav>
-            <ul>
-                <li><a href="recipe1.php">Indonesian Fried Rice</a></li>
-            </ul>
-        </nav>
-
-
-        
+        <div class="recipe-grid">
+            <?php foreach ($recipes as $recipe): ?>
+                <div class="recipe-card">
+                    <img src="<?php echo htmlspecialchars($recipe['image']); ?>" alt="<?php echo htmlspecialchars($recipe['title']); ?>">
+                    <h3><?php echo htmlspecialchars($recipe['title']); ?></h3>
+                    <a href="recipePage.php?id=<?= $recipe['spoonacular_id'] ?>">View Recipe</a>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </main>
     <?php include 'authForms.php'; ?>
     <?php include 'footer.php'; ?>

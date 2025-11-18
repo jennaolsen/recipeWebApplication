@@ -109,3 +109,27 @@ button:hover{
     }
     .btn{width:100%;}
 }
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.recipe-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: #fff;
+    transition: transform 0.2s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}

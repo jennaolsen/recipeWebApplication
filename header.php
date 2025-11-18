@@ -14,8 +14,12 @@
             <button id=searchButton class="btn btn-outline" onclick="searchRecipes()">Search</button>
         </div>
         <div class="auth-actions">
-            <button id="signUpButton" class="btn btn-outline">Sign Up</button>
-            <button id="loginButton" class="btn btn-outline">Log In</button>
+            <a href="registerPage.php">
+                <button type = "button" id="signUpButton"> Sign Up</button>
+            </a>
+            <a href="loginPage.php">
+                <button type = "button" id="loginButton"> Log In</button>
+            </a>
         </div>
     </nav>
     </header>
