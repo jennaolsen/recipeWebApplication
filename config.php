@@ -13,6 +13,7 @@ $host = "localhost";
 $user = "root";
 $pass = "";
 $db = "recipe_app";
+$apiKey = $_ENV['SPOONACULAR_API_KEY'];
 
 $conn = new mysqli($host, $user, $pass, $db);
 
