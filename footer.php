@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <footer>
-        <p>&copy; 2025 My Recipe Site</p>
+        <p>&copy; 2025 The Recipe Spot</p>
     </footer>
 </body>
 </html>

@@ -14,20 +14,23 @@ $needed = $offset + $recipeNumberPerPage;
     $stmt->fetch();
     $stmt->close();
 
+$savedCount = $count;
+
 if($count < $needed){
-    $fetchedRecipes = fetchRecipes($apiKey, "recipe", $recipeNumberPerPage, $pageNumber);
+    $apiPage = floor($count / $recipeNumberPerPage) + 1;
+    $fetchedRecipes = fetchRecipes($apiKey, "recipe", $recipeNumberPerPage, $apiPage);
     loadDatabaseRecipes($fetchedRecipes, $conn);
 
-     $stmt = $conn->prepare("SELECT COUNT(*) FROM recipes");
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM recipes");
     $stmt->execute();
     $stmt->bind_result($count);
     $stmt->fetch();
     $stmt->close();
 }
+
+$recipes = recipesForDisplay($conn, $offset, 20);
 $totalPages = ceil($count / 20);
-if($pageNumber <= $count){
-    $recipes = recipesForDisplay($conn, $offset, 20);
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,33 +45,33 @@ if($pageNumber <= $count){
 <body>
     <?php include 'header.php'; ?>
     <main>
-        <h2>Recipe Index</h2>
+        <h2 class="text-3xl font-bold text-center my-6">Recipe Index</h2>
         <div class = "w-full flex justify-center px-4">
             <div class = "flex flex-wrap justify-center gap-6 max-w-7xl w-full">
                 <?php foreach ($recipes as $recipe): ?>
                     <a href="recipeDetails.php?id=<?php echo $recipe['spoonacular_id']; ?>" 
-                    class="recipe-card-link bg-white rounded-xl shadow hover:shadow-xl transition block overflow-hidden w-[260px]">
-                        <img src = "<?php echo $recipe['image_url']; ?>" alt="<?php echo htmlspecialchars($recipe['title']); ?>" class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-lg font-semibold"><?php echo htmlspecialchars($recipe['title']); ?></h3>
-                        </div>
+                        onclick="incrementVisit(event, <?php echo $recipe['spoonacular_id'];?>, this.href)"
+                        class="recipe-card-link bg-white rounded-xl shadow hover:shadow-xl transition block overflow-hidden w-[260px]">
+                            <img src = "<?php echo $recipe['image_url']; ?>" alt="<?php echo htmlspecialchars($recipe['title']); ?>" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold"><?php echo htmlspecialchars($recipe['title']); ?></h3>
+                            </div>
                     </a>
                 <?php endforeach; ?>
             </div>
         </div>
 
-        <div class = "pageButtons">
+        <div class = "pageButtons flex justify-center items-center gap-4 py-6">
             <?php if ($pageNumber > 1): ?>
-                <a href="recipeIndex.php?page=<?php echo $pageNumber - 1; ?>" class="button">Previous</a>
+                <a href="recipeIndex.php?page=<?php echo $pageNumber - 1; ?>" class="px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow">Previous</a>
             <?php endif; ?>
-            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                <a href="recipeIndex.php?page=<?php echo $i; ?>" class="button <?php if ($i == $pageNumber) echo 'active'; ?>"><?php echo $i; ?></a>
-            <?php endfor; ?>
+            <span class="current_button px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow"> Page <?php echo $pageNumber; ?> </span>
+            <a href = "recipeIndex.php?page=<?php echo $pageNumber + 1; ?>" class="px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow">Next Page</a>
         </div>
     </main>
     <?php include 'authForms.php'; ?>
     <?php include 'footer.php'; ?>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>

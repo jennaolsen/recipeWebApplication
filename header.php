@@ -1,28 +1,40 @@
 
 
-<body>
-    <header>
-        <h1>Our Recipe Web Application</h1>
-        <nav>
-        <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><a href="aboutTheSite.php">About the Site</a></li>
-            <li><a href="recipeIndex.php">Recipe Index</a></li>
-        </ul>
-        <div class="nav-search">
-            <input type="text" placeholder="Search recipes...">
-            <button id=searchButton class="btn btn-outline" onclick="searchRecipes()">Search</button>
-        </div>
-        <div class="auth-actions">
-            <a href="registerPage.php">
-                <button type = "button" id="signUpButton"> Sign Up</button>
+<body class="bg-gray-50 font-sans">
+   <header class="header-container">
+       <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-teal-950">The Recipe Spot</h1>
+       <nav>
+       <ul class="flex gap-4 md:gap-6 text-teal-950 font-semibold">
+           <li class="hover:text-teal-700 transition"><a href="home.php">Home</a></li>
+           <li class="hover:text-teal-700 transition"><a href="aboutTheSite.php">About the Site</a></li>
+           <li class="hover:text-teal-700 transition"><a href="recipeIndex.php">Recipe Index</a></li>
+       </ul>
+       <div class="nav-search ">
+           <input type="text" placeholder="Search recipes...">
+           <button id=searchButton class="btn px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" onclick="searchRecipes()">Search</button>
+       </div>
+       <div class="auth-actions">
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <a href="logout.php">
+                <button onclick="logOut()" class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="logoutButton"> Log Out</button>
             </a>
-            <a href="loginPage.php">
-                <button type = "button" id="loginButton"> Log In</button>
+            <a href = "myRecipes.php">
+                <button class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="myRecipesButton"> My Saved Recipes</button>
             </a>
-        </div>
-    </nav>
-    </header>
+        <?php else: ?>
+           <a href="registerPage.php">
+               <button class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="signUpButton"> Sign Up</button>
+           </a>
+           <a href="loginPage.php">
+               <button class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="loginButton"> Log In</button>
+           </a>
+        <?php endif; ?>
+       </div>
+   </nav>
+   </header>
 </body>
 
+
 </html>
+
+

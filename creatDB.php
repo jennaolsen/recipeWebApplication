@@ -42,6 +42,7 @@ $recipe_table = "CREATE TABLE IF NOT EXISTS recipes(
                 title VARCHAR(255),
                 image_url TEXT,
                 created_at TIMESTAMP DEFAULT NOW()
+                times_visited INT NOT NULL DEFAULT 0
                 )";
 
 if(!$conn->query($recipe_table)){
@@ -59,6 +60,20 @@ if(!$conn->query($saved_recipe_table)){
     die("Could not create Table:".$conn->error);
 }
 
+$recipe_detail_table = "CREATE TABLE IF NOT EXISTS recipeDetails(
+                spoonacular_id INT PRIMARY KEY,
+                title VARCHAR(255),
+                summary TEXT,
+                image_url TEXT,
+                ready_in_minutes INT,
+                instructions LONGTEXT,
+                servings INT,
+                ingredients LONGTEXT
+                )";
+
+if(!$conn->query($recipe_detail_table)){
+    die("Could not create Table:".$conn->error);
+}
 echo "<p>Table created/checked</p>";
 
 $sql_table_col = "ALTER TABLE users
@@ -66,6 +81,11 @@ $sql_table_col = "ALTER TABLE users
                  ADD COLUMN verify_token VARCHAR(64) DEFAULT NULL";
 
 if(!$conn->query($sql_table_col)){
+    die("Could not add column:".$conn->error);
+}
+
+
+if(!$conn->query($add_visited_column)){
     die("Could not add column:".$conn->error);
 }
 

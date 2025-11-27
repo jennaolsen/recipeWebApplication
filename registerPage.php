@@ -1,15 +1,15 @@
 <?php
+    require __DIR__ . "/config.php";
+    require __DIR__ . '/vendor/autoload.php';
+
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    session_start();
+    
     if (isset($_SESSION['user_id'])) {
         header("Location: home.php"); // or dashboard.php
     exit;
-}
-    
-    require __DIR__ . "/config.php";
-    require __DIR__ . '/vendor/autoload.php';
+    }
 
 
     $errors = [];
@@ -69,20 +69,25 @@
         <meta charset="UTF-8">
         <title>Recipe Web Application</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="styles.css">
     </head>
-        <body>
+        <body class="bg-gray-50 font-sans min-h-screen flex flex-col">
             <?php include 'header.php'; ?>
             <?php include 'authForms.php'; ?>
-            <main>
-                <h2>Welcome to Our Recipe Web Application!</h2>
-                <p>Here you can find a number of easy and delicious recipes! Be sure to create an account to save your favorites!</p>
-                <form id="signUpForm" method="post">
-                    <label>Username:<input type="text" id="username" name="username" required></label><br>
-                    <label>Email:<input type="email" id="email" name="email" required></label><br>
-                    <label>Password:<input type="password" id="password" name="password" required></label><br>
-                    <label>Confirm Password:<input type="password" id="confirm" name="confirm" required></label><br>
-                    <button type="submit" id="submit" >Submit</button>
+            <main class="flex-grow flex flex-col items-center justify-center px-4 py-12">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-teal-950 mb-4 text-center">Welcom to The Recipe Spot!</h2>
+                <p class="text-lg sm:text-xl text-gray-700 text-center max-w-2xl mb-8">Create an account to save your favorite recipes!</p>
+                <form id="signUpForm" class="bg-white p-6 rounded-xl shadow-md w-full max-w-md flex flex-col gap-4" method="post">
+                    <label class="flex flex-col text-gray-700 font-medium">Username:
+                        <input class="mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" type="text" id="username" name="username" required></label><br>
+                    <label class="flex flex-col text-gray-700 font-medium">Email:
+                        <input class="mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" type="email" id="email" name="email" required></label><br>
+                    <label class="flex flex-col text-gray-700 font-medium">Password:
+                        <input class="mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" type="password" id="password" name="password" required></label><br>
+                    <label class="flex flex-col text-gray-700 font-medium">Confirm Password:
+                        <input class="mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" type="password" id="confirm" name="confirm" required></label><br>
+                    <button class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type="submit" id="submit" >Submit</button>
                 </form>
         
                 <?php foreach($errors as $e): ?>

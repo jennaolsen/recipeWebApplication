@@ -1,58 +1,76 @@
-body{
-    font-family: "georgia", serif;
+/* Base body styles */
+body {
+    font-family: "Georgia", serif;
     background-color: cornsilk;
+    margin: 0;
+    padding: 0;
 }
-h1{
+
+/* Page title / header 
+h1 {
     color: bisque;
-    background-color: darkcyan;
+    background-color: darkturquoise;
     text-align: center;
     padding: 3rem;
     margin: 0;
 }
-.hidden{
+
+
+/* Hide utility */
+.hidden {
     display: none !important;
 }
-form{
+
+/* Forms */
+form {
     max-width: 400px;
-    justify-content: center;
-    align-items: center;
-    background-color: darkcyan;
     color: bisque;
     padding: 1rem;
-    margin: 0.3rem;
+    margin: 0.3rem auto;
     display: block;
+    text-align: center;
 }
-nav{
+
+/* Navigation bar */
+nav {
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     gap: 1rem;
-    background-color: darkcyan;
+    background-color: darkturquoise;
     padding: 1rem;
     margin: 0;
 }
-nav *{
+
+nav * {
     margin: 0;
     vertical-align: middle;
 }
-nav ul{
+
+nav ul {
     list-style: none;
     display: flex;
     gap: 2rem;
     margin: 0;
     padding: 0;
     font-size: 1.2rem;
-    
 }
-nav a{
-    color: bisque;
+nav li{
+    color: black;
+}
+
+nav a {
+    color: black;
     text-decoration: none;
 }
-nav a:hover{
+
+nav a:hover {
     text-decoration: underline;
 }
-input{
-    background-color: bisque;
+
+/* Inputs */
+input {
+    background-color: rgb(247, 204, 236);
     color: rgb(2, 73, 73);
     margin: 1rem;
     padding: 0.2rem;
@@ -60,49 +78,44 @@ input{
     border: none;
     border-radius: 6px;
 }
-footer{
-    text-align: center;
-    padding: 1rem;
-    background-color: darkcyan;
-    color: bisque;
-    margin-top: 2rem;
-}
-p{
-    padding: 0;
-    margin: 0 1rem 1rem 1rem;
-}
 
-textarea{
+/* Textareas */
+textarea {
     background-color: bisque;
-    color: darkcyan;
+    color: black;
     padding: 0.25rem 0.5rem;
     border-radius: 6px;
 }
 
-button:focus{
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0,128,128,0.15);
-}
-button{
-    background-color: bisque;
-    color: darkcyan;
-    border-color: darkcyan;
-    border-radius: 6px;
-}
-button:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-}
-button:hover{
-    transform: translateY(-2px);
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: darkturquoise;
+    color: black;
+    margin-top: 2rem;
 }
 
-@media (max-width: 480px){
-    .auth-actions{
+/* Paragraphs */
+p {
+    padding: 0;
+    margin: 0 1rem 1rem 1rem;
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 480px) {
+    .auth-actions {
         flex-direction: column;
         align-items: stretch;
         padding: 0 1rem;
     }
-    .btn{width:100%;}
+
+    /* Width adjustment for inputs/search if needed */
+    .nav-search input {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
 }
+
+
 

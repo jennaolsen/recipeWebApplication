@@ -6,6 +6,7 @@
     <title>About This Site — Recipe Web Application</title>
     <script src = "include.js" defer></script>
     <meta name="description" content="About the Recipe Web Application: purpose, features, and contact." />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>

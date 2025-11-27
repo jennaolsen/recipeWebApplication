@@ -53,4 +53,14 @@ function recipesForDisplay($conn, $offset=0, $number=20){
     $stmt->close();
     return $recipes;
 }
+function getRecipeDetails($apiKey, $id){
+    $url = "https://api.spoonacular.com/recipes/$id/information?apiKey=$apiKey";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $recipe = curl_exec($ch);
+    curl_close($ch);
+    $data = json_decode($recipe, true);
+    return $data;
+}
 ?>
