@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $_SESSION['user_id'] = $id;
                 $_SESSION['email'] = $email;
                 $stmt->close();
-                header("Location: home.php");
+                header("Location: myProfile.php");
                 exit;
             } else {
                 $errors[] = "Could not authenticate user";
@@ -56,8 +56,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 <h2 class="text-4xl sm:text-5xl font-extrabold text-teal-950 mb-4 text-center">Welcome back to The Recipe Spot!</h2>
                 <p class="text-lg sm:text-xl text-gray-700 text-center max-w-2xl mb-8">Login to see your favorite recipes!</p>
                 <form id="loginForm" class="bg-white p-6 rounded-xl shadow-md w-full max-w-md flex flex-col gap-4" method="post">
-                    <label class="flex flex-col text-gray-700 font-medium">Email:
-                        <input class="mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" type="email" id="email" name="email" required></label><br>
+                    <label class="flex flex-col text-gray-700 font-medium">Email or Username:
+                        <input class="mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" type="text" id="email" name="email" required></label><br>
                     <label class="flex flex-col text-gray-700 font-medium">Password:
                         <input class="mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" type="password" id="password" name="password" required></label><br>
                     <button class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type="submit">Submit</button>

@@ -6,14 +6,6 @@ body {
     padding: 0;
 }
 
-/* Page title / header 
-h1 {
-    color: bisque;
-    background-color: darkturquoise;
-    text-align: center;
-    padding: 3rem;
-    margin: 0;
-}
 
 
 /* Hide utility */
@@ -31,7 +23,6 @@ form {
     text-align: center;
 }
 
-/* Navigation bar */
 nav {
     display: flex;
     align-items: center;

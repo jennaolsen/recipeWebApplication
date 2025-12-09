@@ -17,8 +17,8 @@
             <a href="logout.php">
                 <button onclick="logOut()" class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="logoutButton"> Log Out</button>
             </a>
-            <a href = "myRecipes.php">
-                <button class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="myRecipesButton"> My Saved Recipes</button>
+            <a href = "myProfile.php">
+                <button class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="myRecipesButton"> My Profile</button>
             </a>
         <?php else: ?>
            <a href="registerPage.php">

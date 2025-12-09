@@ -5,6 +5,15 @@ if(!isset($_SESSION['user_id'])){
     exit;
 }
 $userID = $_SESSION['user_id'];
+$stmt = $conn->prepare("SELECT username, created_at FROM users WHERE id = ?");
+$stmt->bind_param("i", $userID);
+$stmt->execute();
+$stmt->bind_result($username, $createdAt);
+$stmt->fetch();
+$stmt->close();
+
+$readableDate = date("F j, Y", strtotime($createdAt));
+
 $stmt = $conn->prepare("SELECT r.* FROM recipes r
                         INNER JOIN saved_recipes sr ON r.spoonacular_id = sr.recipe_id
                         WHERE sr.user_id = ?"
@@ -20,7 +29,7 @@ $stmt->close();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Recipe Index</title>
+    <title>My Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
@@ -28,6 +37,8 @@ $stmt->close();
 <body>
     <?php include 'header.php'; ?>
     <main>
+        <h1 class="text-2xl font-bold text-teal-950 text-center my-8">Username: <?php echo htmlspecialchars($username); ?></h1>
+        <p class="text-center mb-4">Member since: <?php echo htmlspecialchars($readableDate)?></p>
         <h2 class="text-3xl font-bold text-center my-6">My Saved Recipes</h2>
         <div class = "w-full flex justify-center px-4">
             <div class = "flex flex-wrap justify-center gap-6 max-w-7xl w-full">
