@@ -77,5 +77,20 @@ else{
             <?php echo $instructions; ?>
         </p>
     </div>
+
+    <div id="comments">
+        <h3 class="text-2xl font-bold text-center my-6">Comments</h3>
+        <div id="comments-list" class="max-w-4xl mx-auto mb-6">
+            <!-- Comments will be loaded here -->
+        </div>
+        <textarea id="commentInput" placeholder="Add a comment..." class="w-full max-w-4xl mx-auto p-4 border border-gray-300 rounded-lg mb-4"></textarea>
+        <button id="submitComment" class="btn px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow mb-10" onclick="submitComment(RECIPE_ID)">Submit Comment</button>
+    </div>
+    <?php include 'footer.php'; ?>
+    <script>
+        const RECIPE_ID = <?php echo $recipeID; ?>;
+    </script>
+
+    <script src="leaveComments.js"></script>
 </body>
 </html>

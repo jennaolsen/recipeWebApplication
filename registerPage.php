@@ -7,7 +7,7 @@
     error_reporting(E_ALL);
     
     if (isset($_SESSION['user_id'])) {
-        header("Location: home.php"); // or dashboard.php
+        header("Location: index.php"); // or dashboard.php
     exit;
     }
 

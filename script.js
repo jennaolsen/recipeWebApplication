@@ -16,7 +16,7 @@ function logOut(){
     .then(response => response.json())
     .then(data =>{
         console.log(data.message);
-        window.location.href = "home.php";
+        window.location.href = "index.php";
     })
     .catch(err => console.error(err));
 }

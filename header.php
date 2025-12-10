@@ -2,10 +2,10 @@
 
 <body class="bg-gray-50 font-sans">
    <header class="header-container">
-       <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-teal-950"><a href="home.php">The Recipe Spot</a></h1>
+       <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-teal-950"><a href="index.php">The Recipe Spot</a></h1>
        <nav>
        <ul class="flex gap-4 md:gap-6 text-teal-950 font-semibold">
-           <li class="hover:text-teal-700 transition"><a href="home.php">Home</a></li>
+           <li class="hover:text-teal-700 transition"><a href="index.php">Home</a></li>
            <li class="hover:text-teal-700 transition"><a href="recipeIndex.php">Recipe Index</a></li>
        </ul>
        <form action="searchResults.php" method="GET" class="nav-search ">

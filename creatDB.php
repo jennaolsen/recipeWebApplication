@@ -76,6 +76,18 @@ if(!$conn->query($recipe_detail_table)){
 }
 echo "<p>Table created/checked</p>";
 
+$add_comment_table = "CREATE TABLE comments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    recipe_id INT NOT NULL,
+    user_id INT NOT NULL,
+    comment TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)";
+
+if(!$conn->query($add_comment_table)){
+    die("Could not create comments table:".$conn->error);
+}
+
 $sql_table_col = "ALTER TABLE users
                  ADD COLUMN is_verified TINYINT(1) NOT NULL DEFAULT 0,
                  ADD COLUMN verify_token VARCHAR(64) DEFAULT NULL";
