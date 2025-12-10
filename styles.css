@@ -92,6 +92,26 @@ p {
     padding: 0;
     margin: 0 1rem 1rem 1rem;
 }
+#commentInput{
+    display: flex;
+    width: 80%;
+    background-color: rgb(247, 204, 236);
+    color: black;
+    height: 100px;
+    margin: 0 auto;
+    justify-content: center;
+}
+#submitComment{
+    display: block;
+    margin: 0 auto;
+}
+#comments-list{
+    width: 80%;
+    background-color: rgb(205, 247, 254);
+    margin: 1rem auto;
+    padding: 0 1rem;
+    border-radius: 6px;
+}
 
 /* Media Queries for smaller screens */
 @media (max-width: 480px) {
