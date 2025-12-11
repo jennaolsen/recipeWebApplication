@@ -11,7 +11,7 @@
         header("Location: index.php"); // or dashboard.php
     exit;
     }
-
+    $count = 0;
 
     $errors = [];
 
@@ -20,6 +20,14 @@
         $email = trim($_POST['email']) ?? '';
         $password = $_POST['password'] ?? '';
         $confirm = $_POST['confirm'] ?? '';
+        $count = 0;
+
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE username=? OR email=?");
+            $stmt->bind_param("ss", $username, $email);
+            $stmt->execute();
+            $stmt->bind_result($count);
+            $stmt->fetch();
+            $stmt->close();
 
 
         if (!preg_match('/^[A-Za-z0-9_]{3,30}$/', $username)) {
@@ -37,18 +45,12 @@
         if ($password !== $confirm) {
            $errors[] = "Passwords do not match";
         }
-
-        if (!$errors) {
-            $stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE username=? OR email=?");
-            $stmt->bind_param("ss", $username, $email);
-            $stmt->execute();
-            $stmt->bind_result($count);
-            $stmt->fetch();
-            $stmt->close();
-            if ($count > 0) {
+        if ($count > 0) {
                 $errors[] = "Username or email already exists in the database";
             }
-            else{
+
+        if (!$errors) {
+            
                 $password_hash = password_hash($password, PASSWORD_DEFAULT);
                 $stmt = $conn->prepare("INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)");
                 $stmt->bind_param("sss", $username, $email, $password_hash);
@@ -60,7 +62,6 @@
                     $errors[] = "Failed to create user: " . $stmt->error;
                     $stmt->close();
                 }
-            }
         }
     }
 ?>
