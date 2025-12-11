@@ -94,7 +94,7 @@ p {
 }
 #commentInput{
     display: flex;
-    width: 80%;
+    width: 60%;
     background-color: rgb(247, 204, 236);
     color: black;
     height: 100px;
