@@ -22,21 +22,29 @@ function logOut(){
 }
 
 function randCook(){
+    const btn = document.getElementById("randCook");
+    if(btn.disabled) return;
+
     let wheelSpining = document.createElement("img")
-    wheelSpining.classList.add("fireworks")
-    wheelSpining.classList.add("fireworks-left")
     wheelSpining.src = `wheelSpin.gif?i=${0}`
+    wheelSpining.classList.add("wheelSpining")
+    const wheelContainer = document.getElementById("wheelContainer");
+    wheelContainer.innerHTML = "";
+    wheelContainer.appendChild(wheelSpining)
 
-    document.body.appendChild(wheelSpining)
-
-    setTimeout(() => {
-        document.body.removeChild(wheelSpining)
-    }, 3000);
+    
     fetch('randomRecipe.php', { method: 'GET'})
     .then(response => response.json())
     .then(data =>{
+        //if(!data.recipe){
+        //    alert("No recipe found, please try again later.");
+        //    return;
+        //}
         const recipeId = data.recipeId;
-        window.location.href = "recipe.php?id=" + recipeId;
+        setTimeout(() =>{
+            window.location.href = "recipeDetails.php?id=" + recipeId;
+        }, 1000)
+        
     })
     .catch(err => console.error(err));
 }

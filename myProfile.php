@@ -22,6 +22,7 @@ $stmt->bind_param("i", $userID);
 $stmt->execute();
 $result = $stmt->get_result();
 $recipes = $result->fetch_all(MYSQLI_ASSOC);
+$hasRecipes = count($recipes) > 0;
 $stmt->close();
 ?>
 
@@ -39,7 +40,13 @@ $stmt->close();
     <main>
         <h1 class="text-2xl font-bold text-teal-950 text-center my-8">Username: <?php echo htmlspecialchars($username); ?></h1>
         <p class="text-center mb-4">Member since: <?php echo htmlspecialchars($readableDate)?></p>
-        <button onclick="randCook()" class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="randCook"> What To Make</button>
+        <?php if($hasRecipes): ?>
+            <p class="text-center mb-6">Click the button below to pick a random saved recipe to make.</p>
+        <?php else: ?>
+            <p class="text-center mb-6">Save some recipes to get a random recipe to make.</p>
+        <?php endif; ?>
+        <button onclick="randCook()" class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="randCook" <?php echo $hasRecipes ? '' : 'disabled'; ?>> What To Make</button>
+        <div id="wheelContainer" class="flex justify-center mt-4"></div><br>
         <h2 class="text-3xl font-bold text-center my-6">My Saved Recipes</h2>
         <div class = "w-full flex justify-center px-4">
             <div class = "flex flex-wrap justify-center gap-6 max-w-7xl w-full">

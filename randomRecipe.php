@@ -28,7 +28,8 @@ if ( $_SERVER['REQUEST_METHOD'] === 'GET') {
     $recipe = array_rand($recipes, 1);
     
     header('Content-Type: application/json');
-    echo json_encode(['recipe' => $recipes[$recipe]]);
+    echo json_encode(['recipeId' => $recipes[$recipe]['spoonacular_id']]);
+    exit;
 }
 
 http_response_code(403);
