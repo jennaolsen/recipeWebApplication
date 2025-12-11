@@ -99,7 +99,7 @@
                 <?php endforeach; ?>
             </main>
             <?php include 'footer.php'; ?>
-            <script src="checkRegistration.js"></script>
+            <script src="js/checkRegistration.js"></script>
 
         </body>
 

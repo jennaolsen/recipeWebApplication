@@ -1,6 +1,6 @@
 <?php
     require __DIR__ . "/config.php";
-    require __DIR__ . "/apiFunctions.php";
+    require __DIR__ . "/helperPHP/apiFunctions.php";
     if(!isset($_GET['search'] ) || trim($_GET['search']) === ""){
         echo "No search term given.";
         exit;
@@ -85,7 +85,7 @@ if (empty($recipes)) {
         </div>
     </main>
     <?php include 'footer.php'; ?>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>

@@ -1,10 +1,13 @@
 <?php
-session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require __DIR__ . "/../config.php";
 
 if ( $_SERVER['REQUEST_METHOD'] === 'GET') {
-    require __DIR__ . "/config.php";
     if(!isset($_SESSION['user_id'])){
-        header("Location: loginPage.php");
+        header("Location: ../loginPage.php");
         exit;
     }
     $userID = $_SESSION['user_id'];
@@ -24,6 +27,10 @@ if ( $_SERVER['REQUEST_METHOD'] === 'GET') {
     $result = $stmt->get_result();
     $recipes = $result->fetch_all(MYSQLI_ASSOC);
     $stmt->close();
+    if (empty($recipes)) {
+        echo json_encode(['message' => 'No saved recipes found']);
+        exit;
+    }
 
     $recipe = array_rand($recipes, 1);
     

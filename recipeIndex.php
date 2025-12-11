@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . "/config.php";
-require 'apiFunctions.php';
+require __DIR__ . '/helperPHP/apiFunctions.php';
 
 $pageNumber = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
 $recipeNumberPerPage = 20;
@@ -71,7 +71,7 @@ $totalPages = ceil($count / 20);
     </main>
     <?php include 'authForms.php'; ?>
     <?php include 'footer.php'; ?>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

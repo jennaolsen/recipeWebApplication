@@ -1,7 +1,8 @@
 <?php
-session_start();
+error_reporting(E_ALL);
+
 require __DIR__ . "/config.php";
-require 'apiFunctions.php';
+require __DIR__ . '/helperPHP/apiFunctions.php';
 
 if (!isset($_GET['id'])) {
     echo "No recipe ID provided.";
@@ -60,7 +61,7 @@ else{
         <div class = "flex items-center justify-between mb-6">
             <h1 class = "text-3xl font-bold mb-4"><?php echo htmlspecialchars($title); ?></h1>
             <?php if(isset($_SESSION['user_id'])): ?>
-                <form class= "flex justify-end" method="post" action="saveRecipe.php" >
+                <form class= "flex justify-end" method="post" action="helperPHP/saveRecipe.php" >
                     <input type="hidden" name="recipe_id" value="<?php echo $recipeID; ?>">
                     <button type = "submit" class="btn px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow"> Save Recipe</button>
                 </form>
@@ -96,6 +97,6 @@ else{
         const RECIPE_ID = <?php echo $recipeID; ?>;
     </script>
 
-    <script src="leaveComments.js"></script>
+    <script src="js/leaveComments.js"></script>
 </body>
 </html>

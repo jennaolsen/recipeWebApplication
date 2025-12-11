@@ -1,6 +1,6 @@
 function incrementVisit(event, recipeId, href){
     event.preventDefault();
-    fetch('incrementVisit.php', {
+    fetch('helperPHP/incrementVisit.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -12,7 +12,7 @@ function incrementVisit(event, recipeId, href){
 }
 
 function logOut(){
-    fetch('logout.php', { method: 'POST'})
+    fetch('helperPHP/logout.php', { method: 'POST'})
     .then(response => response.json())
     .then(data =>{
         console.log(data.message);
@@ -33,13 +33,9 @@ function randCook(){
     wheelContainer.appendChild(wheelSpining)
 
     
-    fetch('randomRecipe.php', { method: 'GET'})
+    fetch('helperPHP/randomRecipe.php', { method: 'GET'})
     .then(response => response.json())
     .then(data =>{
-        //if(!data.recipe){
-        //    alert("No recipe found, please try again later.");
-        //    return;
-        //}
         const recipeId = data.recipeId;
         setTimeout(() =>{
             window.location.href = "recipeDetails.php?id=" + recipeId;

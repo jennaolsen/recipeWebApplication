@@ -14,7 +14,7 @@
         </form>
        <div class="auth-actions">
         <?php if (isset($_SESSION['user_id'])): ?>
-            <a href="logout.php?redirect=<?= urlencode($_SERVER['REQUEST_URI'])?>">
+            <a href="helperPHP/logout.php?redirect=<?= urlencode($_SERVER['REQUEST_URI'])?>">
                 <button onclick="logOut()" class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="logoutButton"> Log Out</button>
             </a>
             <a href = "myProfile.php">

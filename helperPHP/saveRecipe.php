@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . "/config.php";
+require __DIR__ . "/../config.php";
 session_start();
 if(!isset($_SESSION['user_id'])){
     die("You must be logged in to save recipes.");
@@ -14,7 +14,7 @@ if(isset($_POST['recipe_id'])){
     $stmt->execute();
     $stmt->close();
 
-    header("Location: recipeDetails.php?id=$recipeID&saved=1");
+    header("Location: ../recipeDetails.php?id=$recipeID&saved=1");
     exit;
 }
 ?>
