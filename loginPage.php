@@ -25,7 +25,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $_SESSION['user_id'] = $id;
                 $_SESSION['email'] = $email;
                 $stmt->close();
-                header("Location: myProfile.php");
+                $redirect = $_GET['redirect'] ?? 'index.php';
+                header("Location: $redirect");
                 exit;
             } else {
                 $errors[] = "Could not authenticate user";

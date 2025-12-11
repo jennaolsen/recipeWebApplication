@@ -14,7 +14,7 @@
         </form>
        <div class="auth-actions">
         <?php if (isset($_SESSION['user_id'])): ?>
-            <a href="logout.php">
+            <a href="logout.php?redirect=<?= urlencode($_SERVER['REQUEST_URI'])?>">
                 <button onclick="logOut()" class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="logoutButton"> Log Out</button>
             </a>
             <a href = "myProfile.php">
@@ -24,7 +24,7 @@
            <a href="registerPage.php">
                <button class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="signUpButton"> Sign Up</button>
            </a>
-           <a href="loginPage.php">
+           <a href="loginPage.php?redirect=<?= urlencode($_SERVER['REQUEST_URI'])?>">
                <button class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type = "button" id="loginButton"> Log In</button>
            </a>
         <?php endif; ?>

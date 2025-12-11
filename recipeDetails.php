@@ -1,4 +1,5 @@
 <?php
+session_start();
 require __DIR__ . "/config.php";
 require 'apiFunctions.php';
 
@@ -83,8 +84,12 @@ else{
         <div id="comments-list" class="max-w-4xl mx-auto mb-6">
             <!-- Comments will be loaded here -->
         </div>
+        <?php if (isset($_SESSION['user_id'])): ?>
         <textarea id="commentInput" placeholder="Add a comment..."></textarea>
-        <button id="submitComment" class="btn px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow mb-10" onclick="submitComment(RECIPE_ID)">Submit Comment</button>
+            <button id="submitComment" class="btn px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow mb-10" onclick="submitComment(RECIPE_ID)">Submit Comment</button>
+        <?php else: ?>
+            <p class="text-center mb-10">Please <a href="loginPage.php?redirect=<?= urlencode($_SERVER['REQUEST_URI'])?>" class="text-pink-600 hover:underline">log in</a> to leave a comment.</p>
+        <?php endif; ?>
     </div>
     <?php include 'footer.php'; ?>
     <script>

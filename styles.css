@@ -8,12 +8,12 @@ body {
 
 
 
-/* Hide utility */
+
 .hidden {
     display: none !important;
 }
 
-/* Forms */
+
 form {
     max-width: 400px;
     color: bisque;
@@ -59,7 +59,7 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Inputs */
+
 input {
     background-color: rgb(247, 204, 236);
     color: rgb(2, 73, 73);
@@ -70,7 +70,7 @@ input {
     border-radius: 6px;
 }
 
-/* Textareas */
+
 textarea {
     background-color: bisque;
     color: black;
@@ -78,7 +78,7 @@ textarea {
     border-radius: 6px;
 }
 
-/* Footer */
+
 footer {
     text-align: center;
     padding: 1rem;
@@ -87,7 +87,7 @@ footer {
     margin-top: 2rem;
 }
 
-/* Paragraphs */
+
 p {
     padding: 0;
     margin: 0 1rem 1rem 1rem;
@@ -113,7 +113,7 @@ p {
     border-radius: 6px;
 }
 
-/* Media Queries for smaller screens */
+
 @media (max-width: 480px) {
     .auth-actions {
         flex-direction: column;
@@ -121,7 +121,7 @@ p {
         padding: 0 1rem;
     }
 
-    /* Width adjustment for inputs/search if needed */
+
     .nav-search input {
         width: 100%;
         margin-bottom: 0.5rem;

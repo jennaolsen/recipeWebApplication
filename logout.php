@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
 
     // If GET request → do redirect (for profile page)
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        header("Location: index.php");
+        $redirect = $_GET['redirect'] ?? 'index.php';
+        header("Location: $redirect");
         exit;
     }
 
