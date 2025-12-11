@@ -112,6 +112,10 @@ p {
     padding: 0 1rem;
     border-radius: 6px;
 }
+#randCook{
+    display: block;
+    margin: 0 auto;
+}
 
 
 @media (max-width: 480px) {
