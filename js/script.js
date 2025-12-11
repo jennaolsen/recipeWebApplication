@@ -39,7 +39,7 @@ function randCook(){
         const recipeId = data.recipeId;
         setTimeout(() =>{
             window.location.href = "recipeDetails.php?id=" + recipeId;
-        }, 1000)
+        }, 3000)
         
     })
     .catch(err => console.error(err));
