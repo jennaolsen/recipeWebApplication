@@ -9,8 +9,8 @@
            <li class="hover:text-teal-700 transition"><a href="recipeIndex.php">Recipe Index</a></li>
        </ul>
        <form action="searchResults.php" method="GET" class="nav-search ">
-           <input type="text" name="search" placeholder="Search recipes...">
-           <button id="submit" class="btn px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" onclick="searchRecipes()">Search</button>
+           <input type="text" name="search" placeholder="Search recipes..." required>
+           <button id="submitSearch" class="btn px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" onclick="searchRecipes()">Search</button>
         </form>
        <div class="auth-actions">
         <?php if (isset($_SESSION['user_id'])): ?>

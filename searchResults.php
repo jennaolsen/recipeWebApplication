@@ -43,8 +43,7 @@ else{
     $recipes = complexRecipesForDisplay($conn, trim($_GET['search']), 20);
 }
 if (empty($recipes)) {
-            echo "No recipes found for the search term.";
-            exit;
+            $recipes = [];
         }
 
 

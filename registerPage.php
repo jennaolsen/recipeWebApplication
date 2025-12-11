@@ -1,6 +1,7 @@
 <?php
     require __DIR__ . "/config.php";
     require __DIR__ . '/vendor/autoload.php';
+    session_start();
 
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -74,19 +75,22 @@
     </head>
         <body class="bg-gray-50 font-sans min-h-screen flex flex-col">
             <?php include 'header.php'; ?>
-            <?php include 'authForms.php'; ?>
             <main class="flex-grow flex flex-col items-center justify-center px-4 py-12">
                 <h2 class="text-4xl sm:text-5xl font-extrabold text-teal-950 mb-4 text-center">Welcom to The Recipe Spot!</h2>
                 <p class="text-lg sm:text-xl text-gray-700 text-center max-w-2xl mb-8">Create an account to save your favorite recipes!</p>
                 <form id="signUpForm" class="bg-white p-6 rounded-xl shadow-md w-full max-w-md flex flex-col gap-4" method="post">
                     <label class="flex flex-col text-gray-700 font-medium">Username:
                         <input class="mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" type="text" id="username" name="username" required></label><br>
+                        <span id="userStatus"></span>
                     <label class="flex flex-col text-gray-700 font-medium">Email:
                         <input class="mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" type="email" id="email" name="email" required></label><br>
+                        <span id="emailStatus"></span>
                     <label class="flex flex-col text-gray-700 font-medium">Password:
                         <input class="mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" type="password" id="password" name="password" required></label><br>
+                        <span id="passwordStatus"></span>
                     <label class="flex flex-col text-gray-700 font-medium">Confirm Password:
                         <input class="mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" type="password" id="confirm" name="confirm" required></label><br>
+                        <span id="confirmStatus"></span>
                     <button class = "px-5 py-2 rounded-full bg-pink-600 text-white hover:bg-pink-700 shadow" type="submit" id="submit" >Submit</button>
                 </form>
         
@@ -95,7 +99,8 @@
                 <?php endforeach; ?>
             </main>
             <?php include 'footer.php'; ?>
+            <script src="checkRegistration.js"></script>
+
         </body>
-    <script src="script.js"></script>
 
 </html>
